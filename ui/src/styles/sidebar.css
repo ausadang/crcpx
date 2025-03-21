@@ -1,0 +1,177 @@
+.sidebar {
+  width: 280px;
+  height: 100vh;
+  background-color: var(--nav-bg);
+  border-right: 1px solid var(--nav-border);
+  transition: width 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar.closed {
+  width: 72px;
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 24px;
+  height: 48px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-item:hover {
+  background-color: var(--bg-hover);
+}
+
+.menu-item.active {
+  background-color: var(--active-bg);
+  color: var(--primary-600);
+}
+
+.menu-item.sub {
+  padding-left: 72px;
+  height: 32px;
+  font-size: 0.8125rem;
+}
+
+.menu-item.sub.empty {
+  cursor: default;
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+.menu-item.sub.empty:hover {
+  background-color: transparent;
+}
+
+.menu-item svg {
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.menu-item .chevron {
+  margin-left: auto;
+  width: 16px;
+  height: 16px;
+  opacity: 0.7;
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.submenu {
+  margin: 0;
+  transition: height 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: var(--bg-secondary);
+}
+
+.menu-divider {
+  height: 1px;
+  background-color: var(--border-light);
+  margin: 0;
+}
+
+.menu-item.logout {
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border-medium);
+}
+
+.menu-item.logout:hover {
+  background-color: var(--bg-hover);
+}
+
+.sidebar.closed .menu-item {
+  padding: 0;
+  justify-content: center;
+  width: 72px;
+}
+
+.sidebar.closed .menu-item span {
+  display: none;
+}
+
+.sidebar.closed .menu-item .chevron {
+  display: none;
+}
+
+.sidebar.closed .submenu {
+  display: none;
+}
+
+.menu-item-group {
+  margin: 0;
+}
+
+/* Skeleton Loading */
+.menu-item.skeleton {
+  cursor: default;
+  pointer-events: none;
+}
+
+.menu-item.skeleton:hover {
+  background-color: transparent;
+}
+
+.skeleton-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--border-light) 0%, var(--border-medium) 50%, var(--border-light) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  flex-shrink: 0;
+}
+
+.skeleton-text {
+  width: 100px;
+  height: 12px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--border-light) 0%, var(--border-medium) 50%, var(--border-light) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeleton-chevron {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  margin-left: auto;
+  background: linear-gradient(90deg, var(--border-light) 0%, var(--border-medium) 50%, var(--border-light) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.sidebar.closed .skeleton-text,
+.sidebar.closed .skeleton-chevron {
+  display: none;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+:root {
+  --selected-bg: rgba(25, 103, 210, 0.08);
+  --primary: rgb(25, 103, 210);
+  --text-secondary: rgb(60, 64, 67);
+  --text-tertiary: rgb(95, 99, 104);
+  --bg-hover: rgba(0, 0, 0, 0.04);
+  --bg-light: rgb(248, 249, 250);
+  --border-light: rgb(218, 220, 224);
+  --border-medium: rgb(200, 200, 200);
+} 
